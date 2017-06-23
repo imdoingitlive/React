@@ -2,17 +2,33 @@ import React from 'react';
 
 export class Home extends React.Component {
     render() {
+
+        console.log(this.props);
+
+        let text = "Something!!";
+
         return(
             <div>
                 <p>In a new component!</p>
-                <br/>
-                <p>Dynamic Data!</p>                
-                { 2 + 2 } { "...Behind the scenes this is adding 2 and 2 together to output 4"}
-                <br/>
-                { "Hello!" }
-                <br/>
-                { 5 === 2 ? "Yes" : "No" } { "...Example of a ternary operation comparing whether 5 is equal to 2" }
+                <p>{text}</p>
+                <p>Your name is {this.props.name}, your age is {this.props.age}</p>
+                <p>User Object => Name: {this.props.user.name}</p>
+                <div>
+                    <h4>Hobbies</h4>
+                    <ul>
+                        {this.props.user.hobbies.map((hobby, i) => <li key={i}>{hobby}</li>)}
+                    </ul>
+                </div>
+                <hr/>
+                {this.props.children}
             </div>
         );
     }
 }
+
+Home.propTypes = {
+    name: React.PropTypes.string,
+    age: React.PropTypes.number,
+    user: React.PropTypes.object,
+    children: React.PropTypes.element.isRequired
+};
