@@ -7,8 +7,6 @@ export class Home extends React.Component {
             age: props.initialAge,
             status: 0
         };
-        // example of how React manages the virtual DOM to only render things that change
-        // with pain flashing turned on in dev tool it will show the status update after 3 seconds
         setTimeout(() => {
             this.setState({
                 status: 1
