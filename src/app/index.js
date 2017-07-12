@@ -5,6 +5,12 @@ import { Header } from "./components/Header";
 import { Home } from "./components/Home";
 
 class App extends React.Component {
+    // create function to send to the child
+    // will call this on line 24
+    onGreet() {
+        alert("Hello!");
+    }
+
     render() {
         return (
             <div className="container">
@@ -15,7 +21,7 @@ class App extends React.Component {
                 </div>
                 <div className="row">
                     <div className="col-xs-10 col-xs-offset-1">
-                        <Home name={"Joe"} initialAge={27} />
+                        <Home name={"Joe"} initialAge={27} greet={this.onGreet}/>
                     </div>
                 </div>
             </div>
