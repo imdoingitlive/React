@@ -16,13 +16,13 @@ class App extends React.Component {
         alert("Hello!");
     }
 
-    // this will grab the data from the home component and pass to like 40
     onChangeLinkName(newName) {
         this.setState({
             homeLink: newName
         });
     }
 
+    // on line 41 added attribute that grabs the state of homeLink
     render() {
         return (
             <div className="container">
@@ -38,6 +38,7 @@ class App extends React.Component {
                             initialAge={27}
                             greet={this.onGreet}
                             changeLink={this.onChangeLinkName.bind(this)}
+                            initialLinkName={this.state.homeLink}
                         />
                     </div>
                 </div>
