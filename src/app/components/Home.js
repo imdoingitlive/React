@@ -6,7 +6,6 @@ export class Home extends React.Component {
         this.state = {
             age: props.initialAge,
             status: 0,
-            // set homeLink to equal the value of initialLinkName
             homeLink: props.initialLinkName
         };
         setTimeout(() => {
@@ -14,6 +13,36 @@ export class Home extends React.Component {
                 status: 1
             });
         }, 3000);
+        console.log("Constructor");
+    }
+
+    componentWillMount() {
+        console.log("Component Will Mount");
+    }
+
+    componentDidMount() {
+        console.log("Constructor Did Mount");
+    }
+
+    componentWillReceiveProps(nextProps) {
+        console.log("Component Will Receive Props", nextProps);
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log("Should Component Update", nextProps, nextState);
+        return true;
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+        console.log("Component Will Update", nextProps, nextState);
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        console.log("Component Did Update", prevProps, prevState);
+    }
+
+    componentWillUnmount() {
+        console.log("Component Will Unmount");
     }
 
     onMakeOlder() {
@@ -26,8 +55,6 @@ export class Home extends React.Component {
         this.props.changeLink(this.state.homeLink);
     }
 
-    // created function that takes in the event from the input field and sets the homeLink value to whatever the input is
-    // link 48 created the input field to let the homeLink be changed
     onHandleChange(event) {
         this.setState({
             homeLink: event.target.value
@@ -56,6 +83,5 @@ Home.propTypes = {
     name: React.PropTypes.string,
     initialAge: React.PropTypes.number,
     greet: React.PropTypes.func,
-    // set the initialLinkName prop type
     initialLinkName: React.PropTypes.string
 };
